@@ -3,14 +3,22 @@ import path from "path";
 import inquirer from "inquirer";
 import ora from "ora";
 
-// ✅ use config
-import { PATHS } from "../config/paths.js";
+import { getPaths } from "../config/paths.js";
 
-const SRC_DIR = PATHS.builderDecks;
-const OUT_DIR = PATHS.decks;
+// ✅ helper
+function getDirs() {
+  const PATHS = getPaths();
+
+  return {
+    SRC_DIR: PATHS.builderDecks,
+    OUT_DIR: PATHS.decks
+  };
+}
 
 // --- ensure setup ---
 function ensureSetup() {
+  const { SRC_DIR, OUT_DIR } = getDirs();
+
   if (!fs.existsSync(SRC_DIR)) {
     fs.mkdirSync(SRC_DIR, { recursive: true });
   }
@@ -40,15 +48,15 @@ export async function decksMenu() {
   }
 }
 
-
 // --- BUILD ALL DECKS ---
 async function buildDecks() {
+  const { SRC_DIR, OUT_DIR } = getDirs();
+
   console.clear();
   console.log("✨ Taleem CLI\n");
   console.log("📦 Building Decks...\n");
 
-  const files = fs.readdirSync(SRC_DIR)
-    .filter(f => f.endsWith(".js"));
+  const files = fs.readdirSync(SRC_DIR).filter(f => f.endsWith(".js"));
 
   if (files.length === 0) {
     console.log("📭 No builder decks found\n");
@@ -61,9 +69,7 @@ async function buildDecks() {
     try {
       const fullPath = path.join(SRC_DIR, file);
 
-      // 🔥 dynamic import (important: fresh load)
       const module = await import(`file://${fullPath}?update=${Date.now()}`);
-
       const buildFn = module.default || module.build;
 
       if (!buildFn) {
@@ -87,9 +93,10 @@ async function buildDecks() {
   console.log("\n🎉 All decks built\n");
 }
 
-
 // --- CREATE NEW DECK ---
 async function createDeck() {
+  const { SRC_DIR } = getDirs();
+
   const { name } = await inquirer.prompt([
     {
       type: "input",

@@ -1,18 +1,26 @@
 import path from "path";
 
-// 🔥 1 source of truth
-export const BASE =
-  process.env.TALEEM_CLI_BASE ||
-  "/home/bilal-tariq/00--TALEEM/workspace";
+let PATHS = null;
 
-// derived paths
-export const PATHS = {
-  base: BASE,
+export function setPaths(config) {
+  const root = process.cwd();
 
-  decks: path.join(BASE, "decks"),
-  images: path.join(BASE, "images"),
-  audio: path.join(BASE, "audio"),
+  PATHS = {
+    root,
 
-  builderDecks: path.join(BASE, "builder-decks"),
-  upload: path.join(BASE, "upload")
-};
+    upload: path.join(root, config.uploadDir),
+
+    images: path.join(root, config.contentDir, "images"),
+    audio: path.join(root, config.contentDir, "audio"),
+    decks: path.join(root, config.contentDir, "decks"),
+
+    builderDecks: path.join(root, config.builderDir)
+  };
+}
+
+export function getPaths() {
+  if (!PATHS) {
+    throw new Error("PATHS not initialized");
+  }
+  return PATHS;
+}

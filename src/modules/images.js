@@ -2,17 +2,25 @@ import fs from "fs";
 import path from "path";
 import inquirer from "inquirer";
 
-// ✅ use config
-import { PATHS } from "../config/paths.js";
-
-const UPLOAD_DIR = PATHS.upload;
-const IMAGES_DIR = PATHS.images;
-const DB_PATH = path.join(PATHS.images, "images.json");
+import { getPaths } from "../config/paths.js";
 
 const VALID_EXT = [".webp", ".png", ".jpg", ".jpeg", ".svg"];
 
+// ✅ helper (central fix)
+function getDirs() {
+  const PATHS = getPaths();
+
+  return {
+    UPLOAD_DIR: PATHS.upload,
+    IMAGES_DIR: PATHS.images,
+    DB_PATH: path.join(PATHS.images, "images.json")
+  };
+}
+
 // --- ensure setup ---
 function ensureSetup() {
+  const { UPLOAD_DIR, IMAGES_DIR, DB_PATH } = getDirs();
+
   if (!fs.existsSync(UPLOAD_DIR)) {
     fs.mkdirSync(UPLOAD_DIR, { recursive: true });
   }
@@ -28,10 +36,12 @@ function ensureSetup() {
 
 // --- db helpers ---
 function readDB() {
+  const { DB_PATH } = getDirs();
   return JSON.parse(fs.readFileSync(DB_PATH, "utf-8"));
 }
 
 function writeDB(data) {
+  const { DB_PATH } = getDirs();
   fs.writeFileSync(DB_PATH, JSON.stringify(data, null, 2));
 }
 
@@ -58,6 +68,8 @@ export async function imagesMenu() {
 
 // --- process uploads ---
 async function processUploads() {
+  const { UPLOAD_DIR, IMAGES_DIR } = getDirs();
+
   const files = fs.readdirSync(UPLOAD_DIR);
 
   const images = files.filter(f =>
@@ -80,7 +92,6 @@ async function processUploads() {
     }
 
     console.clear();
-
     console.log("✨ Taleem CLI\n");
     console.log(`📁 Image ${i + 1} / ${images.length}`);
     console.log(`file: ${file}`);

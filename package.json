@@ -1,6 +1,6 @@
 {
     "name": "taleem-cli",
-    "version": "1.2.0",
+    "version": "1.2.1",
     "description": "Minimal CLI for building and managing Taleem content pipelines",
     "type": "module",
     "main": "src/index.js",

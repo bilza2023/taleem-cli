@@ -5,7 +5,14 @@ import { decksMenu } from "./modules/decks.js";
 import { imagesMenu } from "./modules/images.js";
 import { audioMenu } from "./modules/audio.js";
 
+import { loadConfig } from "./config/loadConfig.js";
+import { setPaths } from "./config/paths.js";
+
 async function main() {
+  // 🔥 LOAD CONFIG + INIT PATHS
+  const config = await loadConfig();
+  setPaths(config);
+
   while (true) {
     console.log("\n✨ Taleem CLI\n");
 

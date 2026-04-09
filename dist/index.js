@@ -906,15 +906,15 @@ var require_route = __commonJS({
       };
     }
     function wrapConversion(toModel, graph) {
-      const path5 = [graph[toModel].parent, toModel];
+      const path6 = [graph[toModel].parent, toModel];
       let fn = conversions[graph[toModel].parent][toModel];
       let cur = graph[toModel].parent;
       while (graph[cur].parent) {
-        path5.unshift(graph[cur].parent);
+        path6.unshift(graph[cur].parent);
         fn = link(conversions[graph[cur].parent][cur], fn);
         cur = graph[cur].parent;
       }
-      fn.conversion = path5;
+      fn.conversion = path6;
       return fn;
     }
     module.exports = function(fromModel) {
@@ -3100,11 +3100,11 @@ var require_baseGet = __commonJS({
   "node_modules/lodash/_baseGet.js"(exports, module) {
     var castPath = require_castPath();
     var toKey = require_toKey();
-    function baseGet(object, path5) {
-      path5 = castPath(path5, object);
-      var index = 0, length = path5.length;
+    function baseGet(object, path6) {
+      path6 = castPath(path6, object);
+      var index = 0, length = path6.length;
       while (object != null && index < length) {
-        object = object[toKey(path5[index++])];
+        object = object[toKey(path6[index++])];
       }
       return index && index == length ? object : void 0;
     }
@@ -3116,8 +3116,8 @@ var require_baseGet = __commonJS({
 var require_get = __commonJS({
   "node_modules/lodash/get.js"(exports, module) {
     var baseGet = require_baseGet();
-    function get(object, path5, defaultValue) {
-      var result = object == null ? void 0 : baseGet(object, path5);
+    function get(object, path6, defaultValue) {
+      var result = object == null ? void 0 : baseGet(object, path6);
       return result === void 0 ? defaultValue : result;
     }
     module.exports = get;
@@ -3199,14 +3199,14 @@ var require_baseSet = __commonJS({
     var isIndex = require_isIndex();
     var isObject = require_isObject();
     var toKey = require_toKey();
-    function baseSet(object, path5, value, customizer) {
+    function baseSet(object, path6, value, customizer) {
       if (!isObject(object)) {
         return object;
       }
-      path5 = castPath(path5, object);
-      var index = -1, length = path5.length, lastIndex = length - 1, nested = object;
+      path6 = castPath(path6, object);
+      var index = -1, length = path6.length, lastIndex = length - 1, nested = object;
       while (nested != null && ++index < length) {
-        var key = toKey(path5[index]), newValue = value;
+        var key = toKey(path6[index]), newValue = value;
         if (key === "__proto__" || key === "constructor" || key === "prototype") {
           return object;
         }
@@ -3214,7 +3214,7 @@ var require_baseSet = __commonJS({
           var objValue = nested[key];
           newValue = customizer ? customizer(objValue, key, nested) : void 0;
           if (newValue === void 0) {
-            newValue = isObject(objValue) ? objValue : isIndex(path5[index + 1]) ? [] : {};
+            newValue = isObject(objValue) ? objValue : isIndex(path6[index + 1]) ? [] : {};
           }
         }
         assignValue(nested, key, newValue);
@@ -3230,8 +3230,8 @@ var require_baseSet = __commonJS({
 var require_set = __commonJS({
   "node_modules/lodash/set.js"(exports, module) {
     var baseSet = require_baseSet();
-    function set(object, path5, value) {
-      return object == null ? object : baseSet(object, path5, value);
+    function set(object, path6, value) {
+      return object == null ? object : baseSet(object, path6, value);
     }
     module.exports = set;
   }
@@ -15536,11 +15536,11 @@ var require_hasPath = __commonJS({
     var isIndex = require_isIndex();
     var isLength = require_isLength();
     var toKey = require_toKey();
-    function hasPath(object, path5, hasFunc) {
-      path5 = castPath(path5, object);
-      var index = -1, length = path5.length, result = false;
+    function hasPath(object, path6, hasFunc) {
+      path6 = castPath(path6, object);
+      var index = -1, length = path6.length, result = false;
       while (++index < length) {
-        var key = toKey(path5[index]);
+        var key = toKey(path6[index]);
         if (!(result = object != null && hasFunc(object, key))) {
           break;
         }
@@ -15561,8 +15561,8 @@ var require_hasIn = __commonJS({
   "node_modules/lodash/hasIn.js"(exports, module) {
     var baseHasIn = require_baseHasIn();
     var hasPath = require_hasPath();
-    function hasIn(object, path5) {
-      return object != null && hasPath(object, path5, baseHasIn);
+    function hasIn(object, path6) {
+      return object != null && hasPath(object, path6, baseHasIn);
     }
     module.exports = hasIn;
   }
@@ -15580,13 +15580,13 @@ var require_baseMatchesProperty = __commonJS({
     var toKey = require_toKey();
     var COMPARE_PARTIAL_FLAG = 1;
     var COMPARE_UNORDERED_FLAG = 2;
-    function baseMatchesProperty(path5, srcValue) {
-      if (isKey(path5) && isStrictComparable(srcValue)) {
-        return matchesStrictComparable(toKey(path5), srcValue);
+    function baseMatchesProperty(path6, srcValue) {
+      if (isKey(path6) && isStrictComparable(srcValue)) {
+        return matchesStrictComparable(toKey(path6), srcValue);
       }
       return function(object) {
-        var objValue = get(object, path5);
-        return objValue === void 0 && objValue === srcValue ? hasIn(object, path5) : baseIsEqual(srcValue, objValue, COMPARE_PARTIAL_FLAG | COMPARE_UNORDERED_FLAG);
+        var objValue = get(object, path6);
+        return objValue === void 0 && objValue === srcValue ? hasIn(object, path6) : baseIsEqual(srcValue, objValue, COMPARE_PARTIAL_FLAG | COMPARE_UNORDERED_FLAG);
       };
     }
     module.exports = baseMatchesProperty;
@@ -15609,9 +15609,9 @@ var require_baseProperty = __commonJS({
 var require_basePropertyDeep = __commonJS({
   "node_modules/lodash/_basePropertyDeep.js"(exports, module) {
     var baseGet = require_baseGet();
-    function basePropertyDeep(path5) {
+    function basePropertyDeep(path6) {
       return function(object) {
-        return baseGet(object, path5);
+        return baseGet(object, path6);
       };
     }
     module.exports = basePropertyDeep;
@@ -15625,8 +15625,8 @@ var require_property = __commonJS({
     var basePropertyDeep = require_basePropertyDeep();
     var isKey = require_isKey();
     var toKey = require_toKey();
-    function property(path5) {
-      return isKey(path5) ? baseProperty(toKey(path5)) : basePropertyDeep(path5);
+    function property(path6) {
+      return isKey(path6) ? baseProperty(toKey(path6)) : basePropertyDeep(path6);
     }
     module.exports = property;
   }
@@ -28591,10 +28591,10 @@ var require_lib = __commonJS({
     exports.analyse = analyse;
     var detectFile = (filepath, opts = {}) => new Promise((resolve, reject) => {
       let fd;
-      const fs4 = (0, node_1.default)();
+      const fs5 = (0, node_1.default)();
       const handler = (err, buffer) => {
         if (fd) {
-          fs4.closeSync(fd);
+          fs5.closeSync(fd);
         }
         if (err) {
           reject(err);
@@ -28606,9 +28606,9 @@ var require_lib = __commonJS({
       };
       const sampleSize = (opts === null || opts === void 0 ? void 0 : opts.sampleSize) || 0;
       if (sampleSize > 0) {
-        fd = fs4.openSync(filepath, "r");
+        fd = fs5.openSync(filepath, "r");
         let sample = Buffer.allocUnsafe(sampleSize);
-        fs4.read(fd, sample, 0, sampleSize, opts.offset, (err, bytesRead) => {
+        fs5.read(fd, sample, 0, sampleSize, opts.offset, (err, bytesRead) => {
           if (err) {
             handler(err, null);
           } else {
@@ -28620,22 +28620,22 @@ var require_lib = __commonJS({
         });
         return;
       }
-      fs4.readFile(filepath, handler);
+      fs5.readFile(filepath, handler);
     });
     exports.detectFile = detectFile;
     var detectFileSync = (filepath, opts = {}) => {
-      const fs4 = (0, node_1.default)();
+      const fs5 = (0, node_1.default)();
       if (opts && opts.sampleSize) {
-        const fd = fs4.openSync(filepath, "r");
+        const fd = fs5.openSync(filepath, "r");
         let sample = Buffer.allocUnsafe(opts.sampleSize);
-        const bytesRead = fs4.readSync(fd, sample, 0, opts.sampleSize, opts.offset);
+        const bytesRead = fs5.readSync(fd, sample, 0, opts.sampleSize, opts.offset);
         if (bytesRead < opts.sampleSize) {
           sample = sample.subarray(0, bytesRead);
         }
-        fs4.closeSync(fd);
+        fs5.closeSync(fd);
         return (0, exports.detect)(sample);
       }
-      return (0, exports.detect)(fs4.readFileSync(filepath));
+      return (0, exports.detect)(fs5.readFileSync(filepath));
     };
     exports.detectFileSync = detectFileSync;
     exports.default = {
@@ -36213,20 +36213,35 @@ function ora(options) {
 
 // src/config/paths.js
 import path from "path";
-var BASE = process.env.TALEEM_CLI_BASE || "/home/bilal-tariq/00--TALEEM/workspace";
-var PATHS = {
-  base: BASE,
-  decks: path.join(BASE, "decks"),
-  images: path.join(BASE, "images"),
-  audio: path.join(BASE, "audio"),
-  builderDecks: path.join(BASE, "builder-decks"),
-  upload: path.join(BASE, "upload")
-};
+var PATHS = null;
+function setPaths(config) {
+  const root = process.cwd();
+  PATHS = {
+    root,
+    upload: path.join(root, config.uploadDir),
+    images: path.join(root, config.contentDir, "images"),
+    audio: path.join(root, config.contentDir, "audio"),
+    decks: path.join(root, config.contentDir, "decks"),
+    builderDecks: path.join(root, config.builderDir)
+  };
+}
+function getPaths() {
+  if (!PATHS) {
+    throw new Error("PATHS not initialized");
+  }
+  return PATHS;
+}
 
 // src/modules/decks.js
-var SRC_DIR = PATHS.builderDecks;
-var OUT_DIR = PATHS.decks;
+function getDirs() {
+  const PATHS2 = getPaths();
+  return {
+    SRC_DIR: PATHS2.builderDecks,
+    OUT_DIR: PATHS2.decks
+  };
+}
 function ensureSetup() {
+  const { SRC_DIR, OUT_DIR } = getDirs();
   if (!fs.existsSync(SRC_DIR)) {
     fs.mkdirSync(SRC_DIR, { recursive: true });
   }
@@ -36251,6 +36266,7 @@ async function decksMenu() {
   }
 }
 async function buildDecks() {
+  const { SRC_DIR, OUT_DIR } = getDirs();
   console.clear();
   console.log("\u2728 Taleem CLI\n");
   console.log("\u{1F4E6} Building Decks...\n");
@@ -36281,6 +36297,7 @@ async function buildDecks() {
   console.log("\n\u{1F389} All decks built\n");
 }
 async function createDeck() {
+  const { SRC_DIR } = getDirs();
   const { name } = await import_inquirer.default.prompt([
     {
       type: "input",
@@ -36325,11 +36342,17 @@ export default function build() {
 var import_inquirer2 = __toESM(require_inquirer(), 1);
 import fs2 from "fs";
 import path3 from "path";
-var UPLOAD_DIR = PATHS.upload;
-var IMAGES_DIR = PATHS.images;
-var DB_PATH = path3.join(PATHS.images, "images.json");
 var VALID_EXT = [".webp", ".png", ".jpg", ".jpeg", ".svg"];
+function getDirs2() {
+  const PATHS2 = getPaths();
+  return {
+    UPLOAD_DIR: PATHS2.upload,
+    IMAGES_DIR: PATHS2.images,
+    DB_PATH: path3.join(PATHS2.images, "images.json")
+  };
+}
 function ensureSetup2() {
+  const { UPLOAD_DIR, IMAGES_DIR, DB_PATH } = getDirs2();
   if (!fs2.existsSync(UPLOAD_DIR)) {
     fs2.mkdirSync(UPLOAD_DIR, { recursive: true });
   }
@@ -36341,9 +36364,11 @@ function ensureSetup2() {
   }
 }
 function readDB() {
+  const { DB_PATH } = getDirs2();
   return JSON.parse(fs2.readFileSync(DB_PATH, "utf-8"));
 }
 function writeDB(data) {
+  const { DB_PATH } = getDirs2();
   fs2.writeFileSync(DB_PATH, JSON.stringify(data, null, 2));
 }
 async function imagesMenu() {
@@ -36364,6 +36389,7 @@ async function imagesMenu() {
   }
 }
 async function processUploads() {
+  const { UPLOAD_DIR, IMAGES_DIR } = getDirs2();
   const files = fs2.readdirSync(UPLOAD_DIR);
   const images = files.filter(
     (f) => VALID_EXT.includes(path3.extname(f).toLowerCase())
@@ -36466,12 +36492,18 @@ function listImages() {
 var import_inquirer3 = __toESM(require_inquirer(), 1);
 import fs3 from "fs";
 import path4 from "path";
-var UPLOAD_DIR2 = PATHS.upload;
-var AUDIO_DIR = PATHS.audio;
 var VALID_EXT2 = [".mp3", ".opus", ".ogg"];
+function getDirs3() {
+  const PATHS2 = getPaths();
+  return {
+    UPLOAD_DIR: PATHS2.upload,
+    AUDIO_DIR: PATHS2.audio
+  };
+}
 function ensureSetup3() {
-  if (!fs3.existsSync(UPLOAD_DIR2)) {
-    fs3.mkdirSync(UPLOAD_DIR2, { recursive: true });
+  const { UPLOAD_DIR, AUDIO_DIR } = getDirs3();
+  if (!fs3.existsSync(UPLOAD_DIR)) {
+    fs3.mkdirSync(UPLOAD_DIR, { recursive: true });
   }
   if (!fs3.existsSync(AUDIO_DIR)) {
     fs3.mkdirSync(AUDIO_DIR, { recursive: true });
@@ -36493,52 +36525,54 @@ async function audioMenu() {
   }
 }
 async function processAudio() {
+  const { UPLOAD_DIR, AUDIO_DIR } = getDirs3();
   console.clear();
   console.log("\u2728 Taleem CLI\n");
   console.log("\u{1F3A7} Upload Audio\n");
-  const files = fs3.readdirSync(UPLOAD_DIR2);
+  const files = fs3.readdirSync(UPLOAD_DIR);
   const audios = files.filter(
     (f) => VALID_EXT2.includes(path4.extname(f).toLowerCase())
   );
   if (audios.length === 0) {
     console.log("\u{1F4ED} No audio files found\n");
     await import_inquirer3.default.prompt([
-      { type: "input", name: "pause", message: "Press Enter to continue..." }
+      { type: "input", name: "pause", message: "Press Enter..." }
     ]);
     return;
   }
-  let moved = [];
-  let skipped = [];
   for (const file of audios) {
-    const src = path4.join(UPLOAD_DIR2, file);
+    const src = path4.join(UPLOAD_DIR, file);
     const dest = path4.join(AUDIO_DIR, file);
-    if (fs3.existsSync(dest)) {
-      skipped.push(file);
-      continue;
+    if (!fs3.existsSync(dest)) {
+      fs3.renameSync(src, dest);
     }
-    fs3.renameSync(src, dest);
-    moved.push(file);
   }
-  console.log("\u{1F4E6} Processing complete\n");
-  if (moved.length > 0) {
-    console.log("\u2705 Moved:");
-    moved.forEach((f) => console.log("  -", f));
-    console.log("");
+  console.log("\u2705 Done\n");
+}
+
+// src/config/loadConfig.js
+import fs4 from "fs";
+import path5 from "path";
+async function loadConfig() {
+  const root = process.cwd();
+  const configPath = path5.join(root, "taleem.config.js");
+  if (fs4.existsSync(configPath)) {
+    const config = await import(`file://${configPath}`);
+    console.log("\u{1F4E6} Using config:", configPath);
+    return config.default;
   }
-  if (skipped.length > 0) {
-    console.log("\u26A0\uFE0F Skipped (already exists):");
-    skipped.forEach((f) => console.log("  -", f));
-    console.log("");
-  }
-  console.log(`Total \u2192 moved: ${moved.length}, skipped: ${skipped.length}
-`);
-  await import_inquirer3.default.prompt([
-    { type: "input", name: "pause", message: "Press Enter to continue..." }
-  ]);
+  console.log("\u26A0\uFE0F No config found, using defaults");
+  return {
+    contentDir: "./content",
+    builderDir: "./builder-decks",
+    uploadDir: "./upload"
+  };
 }
 
 // src/index.js
 async function main() {
+  const config = await loadConfig();
+  setPaths(config);
   while (true) {
     console.log("\n\u2728 Taleem CLI\n");
     const { module } = await import_inquirer4.default.prompt([

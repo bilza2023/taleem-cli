@@ -2,16 +2,24 @@ import fs from "fs";
 import path from "path";
 import inquirer from "inquirer";
 
-// ✅ use config
-import { PATHS } from "../config/paths.js";
-
-const UPLOAD_DIR = PATHS.upload;
-const AUDIO_DIR = PATHS.audio;
+import { getPaths } from "../config/paths.js";
 
 const VALID_EXT = [".mp3", ".opus", ".ogg"];
 
+// helper
+function getDirs() {
+  const PATHS = getPaths();
+
+  return {
+    UPLOAD_DIR: PATHS.upload,
+    AUDIO_DIR: PATHS.audio
+  };
+}
+
 // --- ensure folders ---
 function ensureSetup() {
+  const { UPLOAD_DIR, AUDIO_DIR } = getDirs();
+
   if (!fs.existsSync(UPLOAD_DIR)) {
     fs.mkdirSync(UPLOAD_DIR, { recursive: true });
   }
@@ -42,6 +50,8 @@ export async function audioMenu() {
 
 // --- main logic ---
 async function processAudio() {
+  const { UPLOAD_DIR, AUDIO_DIR } = getDirs();
+
   console.clear();
   console.log("✨ Taleem CLI\n");
   console.log("🎧 Upload Audio\n");
@@ -56,47 +66,20 @@ async function processAudio() {
     console.log("📭 No audio files found\n");
 
     await inquirer.prompt([
-      { type: "input", name: "pause", message: "Press Enter to continue..." }
+      { type: "input", name: "pause", message: "Press Enter..." }
     ]);
 
     return;
   }
 
-  let moved = [];
-  let skipped = [];
-
   for (const file of audios) {
     const src = path.join(UPLOAD_DIR, file);
     const dest = path.join(AUDIO_DIR, file);
 
-    if (fs.existsSync(dest)) {
-      skipped.push(file);
-      continue;
+    if (!fs.existsSync(dest)) {
+      fs.renameSync(src, dest);
     }
-
-    fs.renameSync(src, dest);
-    moved.push(file);
   }
 
-  // --- summary ---
-  console.log("📦 Processing complete\n");
-
-  if (moved.length > 0) {
-    console.log("✅ Moved:");
-    moved.forEach(f => console.log("  -", f));
-    console.log("");
-  }
-
-  if (skipped.length > 0) {
-    console.log("⚠️ Skipped (already exists):");
-    skipped.forEach(f => console.log("  -", f));
-    console.log("");
-  }
-
-  console.log(`Total → moved: ${moved.length}, skipped: ${skipped.length}\n`);
-
-  // --- pause ---
-  await inquirer.prompt([
-    { type: "input", name: "pause", message: "Press Enter to continue..." }
-  ]);
+  console.log("✅ Done\n");
 }
