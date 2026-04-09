@@ -1,0 +1,515 @@
+{
+  "version": "taleem-deck-v2",
+  "name": "test-deck",
+  "background": {
+    "backgroundColor": "#111111",
+    "backgroundImage": "content/images/bg.webp",
+    "backgroundImageOpacity": 0.3
+  },
+  "deck": [
+    {
+      "type": "titleAndSubtitle",
+      "start": 0,
+      "end": 6,
+      "data": [
+        {
+          "name": "title",
+          "content": "Three Famous Study Systems",
+          "timings": [
+            {
+              "time": 0,
+              "event": "show"
+            }
+          ]
+        },
+        {
+          "name": "subtitle",
+          "content": "Simple methods to study better and remember more",
+          "timings": [
+            {
+              "time": 2,
+              "event": "show"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "titleAndPara",
+      "start": 6,
+      "end": 12,
+      "data": [
+        {
+          "name": "title",
+          "content": "Studying feels hard sometimes",
+          "timings": [
+            {
+              "time": 6,
+              "event": "show"
+            }
+          ]
+        },
+        {
+          "name": "para",
+          "content": "You read again and again, but nothing sticks. It feels frustrating and slow.",
+          "timings": [
+            {
+              "time": 8,
+              "event": "show"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "titleAndSubtitle",
+      "start": 12,
+      "end": 18,
+      "data": [
+        {
+          "name": "title",
+          "content": "Active Recall",
+          "timings": [
+            {
+              "time": 12,
+              "event": "show"
+            }
+          ]
+        },
+        {
+          "name": "subtitle",
+          "content": "Don’t just read — test yourself",
+          "timings": [
+            {
+              "time": 14,
+              "event": "show"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "imageLeftBulletsRight",
+      "start": 18,
+      "end": 26,
+      "data": [
+        {
+          "name": "image",
+          "content": "content/images/box.webp",
+          "timings": [
+            {
+              "time": 18,
+              "event": "show"
+            }
+          ]
+        },
+        {
+          "name": "bullet",
+          "content": "Close your book",
+          "timings": [
+            {
+              "time": 20,
+              "event": "show"
+            }
+          ]
+        },
+        {
+          "name": "bullet",
+          "content": "Try to remember the answer",
+          "timings": [
+            {
+              "time": 22,
+              "event": "show"
+            }
+          ]
+        },
+        {
+          "name": "bullet",
+          "content": "Check what you missed",
+          "timings": [
+            {
+              "time": 24,
+              "event": "show"
+            }
+          ]
+        },
+        {
+          "name": "bullet",
+          "content": "Repeat until it sticks",
+          "timings": [
+            {
+              "time": 26,
+              "event": "show"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "imageRightBulletsLeft",
+      "start": 26,
+      "end": 34,
+      "data": [
+        {
+          "name": "image",
+          "content": "content/images/box.webp",
+          "timings": [
+            {
+              "time": 26,
+              "event": "show"
+            }
+          ]
+        },
+        {
+          "name": "bullet",
+          "content": "For exam preparation",
+          "timings": [
+            {
+              "time": 28,
+              "event": "show"
+            }
+          ]
+        },
+        {
+          "name": "bullet",
+          "content": "Builds strong memory",
+          "timings": [
+            {
+              "time": 30,
+              "event": "show"
+            }
+          ]
+        },
+        {
+          "name": "bullet",
+          "content": "Finds weak areas fast",
+          "timings": [
+            {
+              "time": 32,
+              "event": "show"
+            }
+          ]
+        },
+        {
+          "name": "bullet",
+          "content": "Stops passive reading",
+          "timings": [
+            {
+              "time": 34,
+              "event": "show"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "titleAndSubtitle",
+      "start": 34,
+      "end": 40,
+      "data": [
+        {
+          "name": "title",
+          "content": "Spaced Repetition",
+          "timings": [
+            {
+              "time": 34,
+              "event": "show"
+            }
+          ]
+        },
+        {
+          "name": "subtitle",
+          "content": "Review at the right time",
+          "timings": [
+            {
+              "time": 36,
+              "event": "show"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "imageLeftBulletsRight",
+      "start": 40,
+      "end": 48,
+      "data": [
+        {
+          "name": "image",
+          "content": "content/images/spaced-repetition-study-method.svg",
+          "timings": [
+            {
+              "time": 40,
+              "event": "show"
+            }
+          ]
+        },
+        {
+          "name": "bullet",
+          "content": "Study today",
+          "timings": [
+            {
+              "time": 42,
+              "event": "show"
+            }
+          ]
+        },
+        {
+          "name": "bullet",
+          "content": "Review after a short gap",
+          "timings": [
+            {
+              "time": 44,
+              "event": "show"
+            }
+          ]
+        },
+        {
+          "name": "bullet",
+          "content": "Increase the gap each time",
+          "timings": [
+            {
+              "time": 46,
+              "event": "show"
+            }
+          ]
+        },
+        {
+          "name": "bullet",
+          "content": "Don’t cram everything at once",
+          "timings": [
+            {
+              "time": 48,
+              "event": "show"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "imageRightBulletsLeft",
+      "start": 48,
+      "end": 56,
+      "data": [
+        {
+          "name": "image",
+          "content": "content/images/box.webp",
+          "timings": [
+            {
+              "time": 48,
+              "event": "show"
+            }
+          ]
+        },
+        {
+          "name": "bullet",
+          "content": "Best for long-term memory",
+          "timings": [
+            {
+              "time": 50,
+              "event": "show"
+            }
+          ]
+        },
+        {
+          "name": "bullet",
+          "content": "Prevents forgetting",
+          "timings": [
+            {
+              "time": 52,
+              "event": "show"
+            }
+          ]
+        },
+        {
+          "name": "bullet",
+          "content": "Reduces last-minute stress",
+          "timings": [
+            {
+              "time": 54,
+              "event": "show"
+            }
+          ]
+        },
+        {
+          "name": "bullet",
+          "content": "Saves time over time",
+          "timings": [
+            {
+              "time": 56,
+              "event": "show"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "titleAndSubtitle",
+      "start": 56,
+      "end": 62,
+      "data": [
+        {
+          "name": "title",
+          "content": "Pomodoro Technique",
+          "timings": [
+            {
+              "time": 56,
+              "event": "show"
+            }
+          ]
+        },
+        {
+          "name": "subtitle",
+          "content": "Study in short focused sessions",
+          "timings": [
+            {
+              "time": 58,
+              "event": "show"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "imageLeftBulletsRight",
+      "start": 62,
+      "end": 70,
+      "data": [
+        {
+          "name": "image",
+          "content": "content/images/box.webp",
+          "timings": [
+            {
+              "time": 62,
+              "event": "show"
+            }
+          ]
+        },
+        {
+          "name": "bullet",
+          "content": "Study for 25 minutes",
+          "timings": [
+            {
+              "time": 64,
+              "event": "show"
+            }
+          ]
+        },
+        {
+          "name": "bullet",
+          "content": "Take a 5 minute break",
+          "timings": [
+            {
+              "time": 66,
+              "event": "show"
+            }
+          ]
+        },
+        {
+          "name": "bullet",
+          "content": "Repeat 4 times",
+          "timings": [
+            {
+              "time": 68,
+              "event": "show"
+            }
+          ]
+        },
+        {
+          "name": "bullet",
+          "content": "Take a longer break",
+          "timings": [
+            {
+              "time": 70,
+              "event": "show"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "imageRightBulletsLeft",
+      "start": 70,
+      "end": 78,
+      "data": [
+        {
+          "name": "image",
+          "content": "content/images/box.webp",
+          "timings": [
+            {
+              "time": 70,
+              "event": "show"
+            }
+          ]
+        },
+        {
+          "name": "bullet",
+          "content": "Improves focus",
+          "timings": [
+            {
+              "time": 72,
+              "event": "show"
+            }
+          ]
+        },
+        {
+          "name": "bullet",
+          "content": "Prevents burnout",
+          "timings": [
+            {
+              "time": 74,
+              "event": "show"
+            }
+          ]
+        },
+        {
+          "name": "bullet",
+          "content": "Keeps study sessions short",
+          "timings": [
+            {
+              "time": 76,
+              "event": "show"
+            }
+          ]
+        },
+        {
+          "name": "bullet",
+          "content": "Easy to follow daily",
+          "timings": [
+            {
+              "time": 78,
+              "event": "show"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "titleAndPara",
+      "start": 78,
+      "end": 90,
+      "data": [
+        {
+          "name": "title",
+          "content": "Start simple",
+          "timings": [
+            {
+              "time": 78,
+              "event": "show"
+            }
+          ]
+        },
+        {
+          "name": "para",
+          "content": "You don’t need to study longer. You need to study smarter. Try one technique today and see the difference.",
+          "timings": [
+            {
+              "time": 80,
+              "event": "show"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
