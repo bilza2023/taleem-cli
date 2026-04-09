@@ -1,0 +1,30 @@
+[
+  {
+    "filename": "box.webp",
+    "prompt": "old box",
+    "tags": [
+      "box"
+    ]
+  },
+  {
+    "filename": "image.png",
+    "prompt": "default image",
+    "tags": [
+      "image"
+    ]
+  },
+  {
+    "filename": "traversal.webp",
+    "prompt": "this is something great",
+    "tags": [
+      "fine"
+    ]
+  },
+  {
+    "filename": "whatisforce.webp",
+    "prompt": "physics",
+    "tags": [
+      "phsc"
+    ]
+  }
+]

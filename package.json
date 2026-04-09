@@ -1,0 +1,14 @@
+{
+    "name": "taleem-cli",
+    "type": "module",
+    "bin": {
+        "taleem": "./src/index.js"
+    },
+    "dependencies": {
+        "chalk": "^5.6.2",
+        "gradient-string": "^3.0.0",
+        "inquirer": "^8.2.7",
+        "ora": "^9.3.0",
+        "taleem-builder": "^1.2.0"
+    }
+}
